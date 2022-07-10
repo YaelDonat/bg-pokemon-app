@@ -1,0 +1,41 @@
+<div *ngIf="pokemon" class=" mt-10 mx-auto w-full lg:w-1/2 md:w-2/3">
+    <p class="text-3xl font-semibold text-center">{{pokemon.name}}</p>
+    <div class="card grid grid-cols-4 bg-[#ececec]">
+        <div class="card rounded-full max-h-fit max-w-fit bg-slate-100 p-2 col-span-1 place-self-center">
+            <img class="max-h-[100px]" [src]="pokemon.picture" [alt]="pokemon.name">
+        </div>
+        <div class="col-span-3">
+            <table class="table-auto mx-auto w-full ">
+                <thead>
+                    <tr class="bg-[#e6bb2f95]">
+                        <th class="text-start">Nom :ㅤ</th>
+                        <td class="text-end">{{pokemon.name}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start">Points de vie :ㅤ</th>
+                        <td class="text-end">{{pokemon.hp}}</td>
+                    </tr>
+                    <tr class="bg-[#e6bb2f95]">
+                        <th class="text-start">Dégats :ㅤ</th>
+                        <td class="text-end">{{pokemon.cp}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-start">Type(s) :ㅤ</th>
+                        <td class="text-end">
+                            <span  *ngFor="let type of pokemon.types" [ngClass]="type | pokemonTypeColor">  {{type}}</span>
+                        </td>
+                    </tr>
+                    <tr class="bg-[#e6bb2f95]">
+                        <th class="text-start">Création :ㅤ</th>
+                        <td class="text-end"><em>{{pokemon.created | date:"dd/MM/yyyy"}}</em></td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <hr>
+        <a class="text-star text-[#e6bc2f] font-semibold py-1 mt-3 col-span-3 w-3/12 place-self-start cursor-pointer hover:text-xl duration-300" (click)="goToPokemonList()">
+            Retour
+        </a>
+    </div>
+</div>
+<div *ngIf="!pokemon" class="text-center text-7xl"> Aucun Pokémon à afficher ! </div>

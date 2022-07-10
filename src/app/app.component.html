@@ -1,33 +1,6 @@
-<p class="text-2xl text-center"> Liste de Pokémons :  </p>
-
-<input
-class=" border-slate-900 border-2 rounded-md"
-#input
-(keyup.enter)="selectPokemonById(input.value)"
-type="number"
-/>
-
-<div class="container mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-1  gap-2">
-        <div (click)="selectPokemon(this.pokemon)" *ngFor="let pokemon of pokemonList">
-            <div class="card">
-                <div class="card w-fit bg-slate-100">
-                    <img [src]="pokemon.picture" [alt]="pokemon.name">
-                </div>
-                <div>
-                    <div>
-                        <p class="font-semibold">{{pokemon.name}}</p>
-                        <p><small>{{pokemon.created}}</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<p *ngIf="pokemonSelected"  class=" font-semibold text-xl">
-    Vous avez sélectionnez le Pokémon : {{ pokemonSelected?.name }}
-    <img [src]="pokemonSelected?.picture">
-</p>
+<a href="#">
+    <img class="mx-auto my-5 w-auto h-auto" src="../assets/images/pokedex.png" alt="pokédex_img">
+</a>
+<router-outlet></router-outlet>
 
 

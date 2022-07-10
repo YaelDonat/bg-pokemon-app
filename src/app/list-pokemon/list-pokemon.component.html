@@ -1,0 +1,19 @@
+
+<div class="container mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2  gap-2">
+        <div *ngFor="let pokemon of pokemonList">
+            <div (click)="goToPokemon(pokemon)" class="card grid grid-cols-2 cursor-pointer" pkmnBorderCard="#e6bc2f">
+                <div class="card rounded-full max-h-fit max-w-fit bg-slate-100 col-span-1 p-2">
+                    <img class="max-h-[100px]" [src]="pokemon.picture" [alt]="pokemon.name">
+                </div>
+                <div class="col-span-1 max-w-fit pl-2 font-semibold">
+                    <p>{{pokemon.name}}</p>
+                    <p class="mb-2"><small>{{pokemon.created | date:"dd/MM/yyyy"}}</small></p>
+                    <span *ngFor="let type of pokemon.types" [ngClass]="type | pokemonTypeColor">
+                        {{type}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
